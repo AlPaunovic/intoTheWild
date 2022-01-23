@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400|Quicksand:300,400&display=swap");
+
+/************
+variables
+*************/
+$font: "Poppins", sans-serif;
+$headings: "Quicksand", sans-serif;
+$fontSize: 16px;
+$red: #ee6588; /* rgb(238, 101, 136) */
+$orange: #f69560; /* rgb(246, 149, 96) */
+$gray: #5a6284; /* rgb(90, 98, 132) */
+$brown: #937f8f;
+$text: #7d7d7d;
+$borders: #dfdfdf;
+$lightgray: #f1f1f1;
+$socialinks: #bbbbbb;
+$transition: 0.5s linear;
+
+/************
+mixins
+*************/
+@mixin bgImg($position, $size, $repeat) {
+    background-position: $position;
+    background-size: $size;
+    background-repeat: $repeat;
+}
+.py {
+    padding: 100px 0;
+}
+.cnt {
+    text-align: center;
+}
+@mixin btn {
+    background: transparent;
+    border: none;
+    color: $lightgray;
+    border: 1px solid $borders;
+    border-radius: 5px;
+    padding: 15px 35px;
+    transition: $transition;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    &:hover {
+        background: $borders;
+        color: $text;
+    }
+}
+
+.container {
+    width: 70%;
+    margin: 100px auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headings;
+    font-weight: 400;
+}
+h2 {
+    font-size: 2.5rem;
+}
+body {
+    background-image: linear-gradient(rgba($orange, 0.9), rgba($gray, 0.9)), url(/img/bg.jpg);
+    @include bgImg(center top, cover, no-repeat);
+    font-family: $font;
+    font-size: $fontSize;
+    line-height: 1.7;
+}
+img {
+    width: 100%;
+}
+
+/************
+header
+*************/
+
+header {
+    background-image: linear-gradient(rgba(90, 98, 132, 0.8), rgba(90, 98, 132, 0.8)), url(/img/header.jpg);
+    @include bgImg(center, cover, no-repeat);
+    height: 60vh;
+    color: $lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    article {
+        background: linear-gradient(to right, rgba($red, 0.6), rgba($orange, 0.5));
+        padding: 50px 200px;
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 50px;
+        }
+        h4 {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        button {
+            @include btn;
+        }
+    }
+}
+
+/************
+intro
+*************/
+
+.intro {
+    background: $lightgray;
+    h2 {
+        color: $red;
+        margin-bottom: 20px;
+    }
+    p {
+        padding: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/************
+about
+*************/
+
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    article:first-child {
+        flex: 0 0 50%;
+        color: $lightgray;
+        background: linear-gradient(to right, rgba($red, 0.8), rgba($orange, 0.9));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 50px;
+        h4 {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        button {
+            @include btn;
+        }
+    }
+    article:last-child {
+        flex: 0 0 50%;
+        display: flex;
+        align-items: stretch;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/************
+gallery
+*************/
+
+.gallery {
+    background: $lightgray;
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 50px;
+    }
+    
+    div {
+        flex: 0 0 28%;
+        margin-bottom: 50px;
+    }
+}
+
+/************
+signUp
+*************/
+
+.signUp {
+    background: linear-gradient(to right, rgba($brown, .4), rgba($gray, .6));
+    color: $lightgray;
+    p {
+        font-size: 1.2rem;
+        padding: 20px 0;
+        font-weight: 300;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        input {
+           border-radius: 5px;
+           margin: 0 5px;
+            }
+        input:first-child {
+            border: 1px solid $borders;
+            padding: 10px;
+            background: transparent;
+            color: red;
+        }
+        input:last-child {
+            border: 1px solid $borders;
+            padding: 10px;
+            &:hover {
+                background: $orange;
+                cursor: pointer;
+                transition: $transition;
+            }
+        }
+    }
+}
+
+/************
+get in touch
+*************/
+
+.git {
+    background: $lightgray;
+    h2 {
+        color: $red;
+    }
+    p {
+        font-size: 1.2rem;
+        padding: 20px 0;
+        font-weight: 300;
+    }
+    article {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .icon-item {
+            flex: 0 0 28%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            i { 
+                font-size: 2.5rem;
+                color: $red;
+                margin-top: 20px;
+                padding: 30px;
+                border: 1px solid $socialinks;
+                border-radius: 50%;
+            }
+            p {
+                color: $socialinks;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+/************
+footer
+*************/
+
+footer {
+    padding: 20px 20px;
+    background: $socialinks;
+    color: $text;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    i {
+        color: $text;
+        margin-left: 15px;
+        font-size: 1.5rem;
+        transition: $transition;
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
